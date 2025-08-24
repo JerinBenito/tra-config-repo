@@ -1,0 +1,31 @@
+server:
+  port: 8082   # unique port for login-service
+
+spring:
+  application:
+    name: login-service   # service name for Eureka
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/trading_application
+    username: root
+    password: tiger
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MariaDBDialect
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/   # Eureka server address
+    register-with-eureka: true
+    fetch-registry: true
+
+jwt:
+  secret: mySecretKeyForJwt12345   # use a strong secret in real world
+  expiration: 3600000   # 1 hour (in ms)
