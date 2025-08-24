@@ -27,5 +27,5 @@ eureka:
     fetch-registry: true
 
 jwt:
-  secret: mySecretKeyForJwt12345   # use a strong secret in real world
+  secret: 7fbbf50c9a72d3a8a61efcb4d5b29c7e41f2f8b9c0e3d19f6a7c8b5e29a4d6f3f8e2c7d1a4b9e0f2c6d3a8e5f9b1c7d2e4   # use a strong secret in real world
   expiration: 3600000   # 1 hour (in ms)
