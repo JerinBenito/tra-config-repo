@@ -27,6 +27,6 @@ eureka:
     fetch-registry: true
 
 jwt:
-  private-key: classpath:keys/private.pem  
-  public-key: classpath:keys/public.pem
+  private-key: classpath:keys/private_key.pem  
+  public-key: classpath:keys/public_key.pem
   expiration: 3600000   # 1 hour (in ms)
