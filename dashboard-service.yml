@@ -1,0 +1,12 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: dashboard-service
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          public-key-location: classpath:public.pem  # path to public key used for JWT verification
