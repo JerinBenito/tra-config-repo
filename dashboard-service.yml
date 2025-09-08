@@ -1,12 +1,39 @@
 server:
-  port: 8083
+  port: 8083   # unique port for dashboard-service
 
 spring:
   application:
     name: dashboard-service
 
+  datasource:
+    url: jdbc:mysql://localhost:3306/trading_application
+    username: root
+    password: tiger
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+
   security:
     oauth2:
       resourceserver:
         jwt:
-          public-key-location: classpath:public.pem  # path to public key used for JWT verification
+          public-key-location: classpath:keys/public.pem   # JWT public key for token validation
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"   # expose actuator endpoints (optional for monitoring)
